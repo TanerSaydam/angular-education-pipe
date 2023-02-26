@@ -1,0 +1,37 @@
+<h1>Products</h1>
+<input type="text" placeholder="Aranacak değer..." [(ngModel)]="search">
+<!-- <ul>
+    <li *ngFor="let p of products | productPipe:search let index = index">
+        {{p.name}}
+    </li>
+</ul> -->
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="
+        let p of searchProducts()
+        let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.category}}</td>
+            <td><img [src]="p.image" width="50"></td>
+            <td>{{p.quantity}}</td>
+            <!-- <td>{{p.price | currency:'TRY':'symbol-narrow': '1.2-2'}}</td> -->
+            <td>{{p.price |trCurrency:'€' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- 
+    value | pipe_name: parametre:paremetre
+ -->
